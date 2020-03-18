@@ -1,6 +1,6 @@
 {
   "name": "@andrescalimero/ts-library-template",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Example of scaffolding for a library using TypeScript and Parcel",
   "keywords": [],
   "source": "src/index.ts",
