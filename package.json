@@ -2,7 +2,7 @@
   "name": "@andrescalimero/ts-library-template",
   "version": "1.0.0",
   "description": "Example of scaffolding for a library using TypeScript and Parcel",
-  "keywords": [],
+  "keywords": ["template", "webapp", "typescript"],
   "source": "src/index.ts",
   "main": "dist/node/index.js",
   "browser": "dist/browser/index.js",
