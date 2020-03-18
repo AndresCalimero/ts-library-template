@@ -1,0 +1,8 @@
+{
+  "mode": "modules",
+  "out": "docs",
+  "excludeNotExported": true,
+  "excludeExternals": true,
+  "exclude": "**/*+(index|.spec|.e2e|.test).ts",
+  "theme": "default"
+}

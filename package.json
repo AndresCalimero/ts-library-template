@@ -1,0 +1,96 @@
+{
+  "name": "@andrescalimero/ts-library-template",
+  "version": "0.0.0",
+  "description": "Example of scaffolding for a library using TypeScript and Parcel",
+  "keywords": [],
+  "source": "src/index.ts",
+  "main": "dist/node/index.js",
+  "browser": "dist/browser/index.js",
+  "types": "dist/types/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "browserslist": [
+    "> 0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "engines": {
+    "node": ">=11.0.0"
+  },
+  "scripts": {
+    "start": "node dist/node/index.js",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "lint": "eslint src/**/*.ts",
+    "lint:fix": "npm run lint -- --fix",
+    "lint:commits": "commitlint --to HEAD --verbose",
+    "prebuild": "rimraf dist",
+    "build": "npm run build:types && npm run build:node && npm run build:browser",
+    "build:watch": "concurrently \"npm:build:types:watch\" \"npm:build:node:watch\" \"npm:build:browser:watch\"",
+    "build:types": "tsc",
+    "build:types:watch": "tsc -w",
+    "build:node": "parcel build src/index.ts --target node -d dist/node",
+    "build:node:watch": "parcel watch src/index.ts --target node -d dist/node",
+    "build:browser": "parcel build src/index.ts --global ts-library-template --target browser -d dist/browser",
+    "build:browser:watch": "parcel watch src/index.ts --global ts-library-template --target browser -d dist/browser",
+    "build:docs": "typedoc src && touch docs/.nojekyll",
+    "prepublishOnly": "npm run build",
+    "release": "semantic-release",
+    "deps:upgrade": "npm-check -u",
+    "commit": "git-cz",
+    "co": "npm run commit"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndresCalimero/ts-library-template.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "author": "Andres Calimero <andrescalimero@hotmail.es>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AndresCalimero/ts-library-template/issues"
+  },
+  "homepage": "https://github.com/AndresCalimero/ts-library-template#readme",
+  "devDependencies": {
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
+    "@semantic-release/changelog": "^5.0.0",
+    "@semantic-release/commit-analyzer": "^8.0.1",
+    "@semantic-release/git": "^9.0.0",
+    "@semantic-release/release-notes-generator": "^9.0.1",
+    "@types/jest": "^25.1.4",
+    "@types/node": "^13.9.1",
+    "@typescript-eslint/eslint-plugin": "^2.24.0",
+    "@typescript-eslint/parser": "^2.24.0",
+    "commitizen": "^4.0.3",
+    "concurrently": "^5.1.0",
+    "cz-conventional-changelog": "^3.1.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-promise": "^4.2.1",
+    "husky": "^4.2.3",
+    "jest": "^25.1.0",
+    "lint-staged": "^10.0.8",
+    "npm-check": "^5.9.2",
+    "parcel": "^1.12.4",
+    "parcel-plugin-bundle-visualiser": "^1.2.0",
+    "prettier": "^1.19.1",
+    "rimraf": "^3.0.2",
+    "semantic-release": "^17.0.4",
+    "ts-jest": "^25.2.1",
+    "typedoc": "^0.17.0",
+    "typescript": "^3.8.3"
+  }
+}
